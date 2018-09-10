@@ -276,6 +276,7 @@ describe("PanoImageRenderer", () => {
 	describe.only("renderingcontextlost / renderingcontextrestore event", () => {
 		IT("Should trigger renderingcontextlost event when lost context", done => {
 			// Given
+			console.log("1");
 			const REQUIRED_WEBGL_CONTEXT_COUNT_FOR_CONTEXT_LOST = 16;
 			const sourceImg = new Image();
 
@@ -288,6 +289,7 @@ describe("PanoImageRenderer", () => {
 			const loseContext = inst.context.getExtension("WEBGL_lose_context");
 			let hasRenderingContextAfterLost;
 
+			console.log("2");
 			inst.on("renderingContextLost", () => {
 				console.log("renderingContextLost1");
 				hasRenderingContextAfterLost = inst.hasRenderingContext();
