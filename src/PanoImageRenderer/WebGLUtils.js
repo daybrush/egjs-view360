@@ -88,6 +88,7 @@ export default class WebGLUtils {
 
 		for (let i = 0; i < webglIdentifiers.length; i++) {
 			try {
+				console.log("try", webglIdentifiers[i]);
 				context = canvas.getContext(webglIdentifiers[i], contextAttributes);
 			} catch (t) {}
 			if (context) {

@@ -55,6 +55,7 @@ module.exports = config => {
 					"--hide-scrollbars",
 					"--mute-audio",
 					"--no-sandbox",
+					"--enable-webgl-draft-extensions",
 					"--disable-setuid-sandbox",
 					// Without a remote debugging port, Google Chrome exits immediately.
 					"--remote-debugging-port=9222",
