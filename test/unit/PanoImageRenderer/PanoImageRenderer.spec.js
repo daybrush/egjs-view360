@@ -273,7 +273,7 @@ describe("PanoImageRenderer", () => {
 		});
 	});
 
-	describe("renderingcontextlost / renderingcontextrestore event", () => {
+	describe.only("renderingcontextlost / renderingcontextrestore event", () => {
 		IT("Should trigger renderingcontextlost event when lost context", done => {
 			// Given
 			const REQUIRED_WEBGL_CONTEXT_COUNT_FOR_CONTEXT_LOST = 16;
@@ -289,6 +289,7 @@ describe("PanoImageRenderer", () => {
 			let hasRenderingContextAfterLost;
 
 			inst.on("renderingContextLost", () => {
+				console.log("renderingContextLost1");
 				hasRenderingContextAfterLost = inst.hasRenderingContext();
 
 				// Force restore context after context lost. It should be fired after some timeout.
@@ -305,6 +306,7 @@ describe("PanoImageRenderer", () => {
 
 			// Then
 			function thenFunc(e) {
+				console.log("renderingContextLost2");
 				expect(hasRenderingContextAfterLost).to.be.false;
 				expect(inst.hasRenderingContext()).to.be.true;
 
