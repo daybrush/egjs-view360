@@ -277,7 +277,7 @@ describe("PanoImageRenderer", () => {
 		IT("Should trigger renderingcontextlost event when lost context", done => {
 			// Given
 			console.log("1");
-			const REQUIRED_WEBGL_CONTEXT_COUNT_FOR_CONTEXT_LOST = 16;
+			const REQUIRED_WEBGL_CONTEXT_COUNT_FOR_CONTEXT_LOST = 32;
 			const sourceImg = new Image();
 
 			sourceImg.src = "./images/test_cube.jpg";
