@@ -86,7 +86,11 @@ export default class PanoImageRenderer extends Component {
 				imageType: sphericalConfig.imageType,
 				isVideo,
 				cubemapConfig: sphericalConfig.cubemapConfig
+			}).then(e => {
+				console.log("set image promise done");
 			});
+
+			console.log("call setImage");
 		}
 	}
 
@@ -111,6 +115,7 @@ export default class PanoImageRenderer extends Component {
 		this._setImageType(imageType);
 
 		if (this._contentLoader) {
+			console.log("destory content loader");
 			this._contentLoader.destroy();
 		}
 
@@ -122,9 +127,13 @@ export default class PanoImageRenderer extends Component {
 			this._keepUpdate = false;
 		}
 
+
+		console.log("new content loader");
 		// img element or img url
 		this._contentLoader.set(image);
 
+
+		console.log("content loader set image");
 		// 이미지의 사이즈를 캐시한다.
 		// image is reference for content in contentLoader, so it may be not valid if contentLoader is destroyed.
 		this._image = this._contentLoader.getElement();
@@ -212,6 +221,7 @@ export default class PanoImageRenderer extends Component {
 		});
 	}
 	_onContentLoad(image) {
+		console.log("LOAD!!");
 		this._imageIsReady = true;
 
 		this._triggerContentLoad();
@@ -243,6 +253,7 @@ export default class PanoImageRenderer extends Component {
 	}
 
 	forceContextLoss() {
+		console.log("force context loss");
 		if (this.hasRenderingContext()) {
 			const loseContextExtension = this.context.getExtension("WEBGL_lose_context");
 
@@ -285,6 +296,7 @@ export default class PanoImageRenderer extends Component {
 	}
 
 	_onWebglcontextlost(e) {
+		console.log("original event context lost");
 		e.preventDefault();
 		this.trigger(EVENTS.RENDERING_CONTEXT_LOST);
 	}
@@ -358,6 +370,7 @@ export default class PanoImageRenderer extends Component {
 
 			// Buffers for shader
 			this._initBuffers();
+			console.log("init buffer");
 		} catch (e) {
 			this.trigger(EVENTS.ERROR, {
 				type: ERROR_TYPE.NO_WEBGL,
@@ -382,6 +395,8 @@ export default class PanoImageRenderer extends Component {
 			gl.enable(gl.CULL_FACE);
 			// gl.enable(gl.DEPTH_TEST);
 		}
+
+		console.log("init gl");
 	}
 
 	_initRenderingContext() {
@@ -393,8 +408,9 @@ export default class PanoImageRenderer extends Component {
 			throw new Error("WebGLRenderingContext not available.");
 		}
 
+		console.log("webgl before");
 		this.context = WebGLUtils.getWebglContext(this.canvas, this._renderingContextAttributes);
-
+		console.log("webgl after");
 		if (!this.context) {
 			throw new Error("Failed to acquire 3D rendering context");
 		}

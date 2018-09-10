@@ -129,6 +129,7 @@ export default class WebGLUtils {
 			if (webglContext) {
 				const loseContextExtension = webglContext.getExtension("WEBGL_lose_context");
 
+				console.log("lose context");
 				loseContextExtension && loseContextExtension.loseContext();
 			}
 		}

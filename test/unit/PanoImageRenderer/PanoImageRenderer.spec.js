@@ -303,6 +303,7 @@ describe("PanoImageRenderer", () => {
 			// When
 			for (let i = 0; i < REQUIRED_WEBGL_CONTEXT_COUNT_FOR_CONTEXT_LOST; i++) {
 				// Following code triggers webgl context lost.
+				console.log("lose req", i);
 				createPanoImageRenderer(sourceImg, false, "cubemap");
 			}
 
