@@ -289,7 +289,7 @@ describe("PanoImageRenderer", () => {
 			const loseContext = inst.context.getExtension("WEBGL_lose_context");
 			let hasRenderingContextAfterLost;
 
-			console.log("2");
+			console.log("2", loseContext);
 			inst.on("renderingContextLost", () => {
 				console.log("renderingContextLost1");
 				hasRenderingContextAfterLost = inst.hasRenderingContext();
