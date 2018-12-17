@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta property="og:title" content="PanoViewer">
-    <meta property="og:image" content="../assets/img/PanoViewer.png">
+    <meta property="og:image" content="./common/img/PanoViewer.png">
     <meta name="Description" content="A panoramic media viewer for the mobile web ↪️🌐↩️">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Zilla+Slab:700" rel="stylesheet">    
     <link rel="stylesheet" href="./common/css/bootstrap.min.css">
@@ -17,6 +17,8 @@
 </head>
 
 
+
+	<link rel="stylesheet" href="../common/css/container.css">
 
 
 	<script src="release/latest/dist/view360.pkgd.min.js"></script>
@@ -50,8 +52,8 @@
                     <img class="egjs_logo" src="./common/img/type_black.svg"/>
                     view360
                 </a><!--//logo-->
-                <a href="https://github.com/naver/egjs-view360/releases/tag/3.1.0">
-                    <span class="version">3.1.0</span>
+                <a href="https://github.com/naver/egjs-view360/releases/tag/3.2.0-rc">
+                    <span class="version">3.2.0-rc</span>
                 </a>
             </div>
             <div class="pull-right home">
@@ -82,67 +84,452 @@
 		</div>
 	</section>
 <div>
+	<style>
+	.tabs {
+		list-style: none;
+		padding: 10px 0px;
+		margin: 0;
+		/* text-align: center; */
+		margin: 0px auto;
+	}
+	.tabs li {
+		position: relative;
+		padding: 0px 20px;
+		height: 50px;
+		line-height: 50px;
+		font-weight: bold;
+		box-sizing: border-box;
+		display: inline-block;
+		transition: color ease 0.2s;
+		vertical-align: top;
+		text-decoration: none;
+		color: #999;
+		transition: color ease 0.2s;
+	}
+	.tabs li:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		transition: background-color ease 0.2s;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		border-radius: 25px;
+	}
+	.tabs li.checked:before {
+		background: #eee;
+	}
+	.tabs li.checked, .tabs li:hover {
+		color: #333;
+	}
+</style>
+<nav>
+	<ul class="tabs container">
+		<li data-tab="home">Home</li>
+		<li data-tab="projections">Projections</li>
+		<li data-tab="features">Features</li>
+		<li data-tab="started">Getting Started</li>
+	</ul>
+</nav>
 
-	<section id="showcase" class="docs section">
+<script>
+	var lis = $(".tabs li");
+	lis.click(function (e) {
+		var target = e.currentTarget;
+		var hash = target.getAttribute("data-tab");
+
+
+		location.hash = hash;
+		lis.removeClass("checked");
+		target.setAttribute('class', "checked");
+		
+		Tab.open(hash);
+		return false;
+	});
+</script>
+	<section id="home" class="tab docs section" data-tab="home" id="home">
+		<ul class="list">
+			
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo1's image"/>
+					</p>
+					<p class="title">demo1</p>
+					<p class="description">11111`2121212121212121212121212121212121</p>
+				</a>
+			</li>
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo2's image"/>
+					</p>
+					<p class="title">demo2</p>
+					<p class="description">11111`2121212121212121212121212121212121</p>
+				</a>
+			</li>
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo3's image"/>
+					</p>
+					<p class="title">demo3</p>
+					<p class="description">11111`2121212121212121212121212121212121</p>
+				</a>
+			</li>
+			
+			
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo1's image"/>
+					</p>
+					<p class="title">demo1</p>
+					<p class="description">111</p>
+				</a>
+			</li>
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo2's image"/>
+					</p>
+					<p class="title">demo2</p>
+					<p class="description">111</p>
+				</a>
+			</li>
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo3's image"/>
+					</p>
+					<p class="title">demo3</p>
+					<p class="description">111</p>
+				</a>
+			</li>
+			
+			
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo1's image"/>
+					</p>
+					<p class="title">demo1</p>
+					<p class="description">11111`2121212121212121211`212121212121212121212121212121212112121212121212121</p>
+				</a>
+			</li>
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo2's image"/>
+					</p>
+					<p class="title">demo2</p>
+					<p class="description">11111`21212111`21212121212121212121212121212121212121212121212121212121212121</p>
+				</a>
+			</li>
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo3's image"/>
+					</p>
+					<p class="title">demo3</p>
+					<p class="description">11111`2121212121212121211`212121212121212121212121212121212112121212121212121</p>
+				</a>
+			</li>
+			
+			
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo1's image"/>
+					</p>
+					<p class="title">demo1</p>
+					<p class="description">111`2121212121212121212121212121212121</p>
+				</a>
+			</li>
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo2's image"/>
+					</p>
+					<p class="title">demo2</p>
+					<p class="description">11111`2121212121212121212121212121212121</p>
+				</a>
+			</li>
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo3's image"/>
+					</p>
+					<p class="title">demo3</p>
+					<p class="description">11111`2121212121212121212121212121212121</p>
+				</a>
+			</li>
+			
+			
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo1's image"/>
+					</p>
+					<p class="title">demo1</p>
+					<p class="description">111</p>
+				</a>
+			</li>
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo2's image"/>
+					</p>
+					<p class="title">demo2</p>
+					<p class="description">111</p>
+				</a>
+			</li>
+			
+			<li>
+				<a href="demo1.html">
+					<p class="image-area">
+						<img src="./common/img/equirectangular.png" class="image" alt="demo3's image"/>
+					</p>
+					<p class="title">demo3</p>
+					<p class="description">111</p>
+				</a>
+			</li>
+			
+			
+		</ul>
+	</section>
+	<section id="projections" class="tab docs section" data-tab="projections">
 		<div class="container">
-			<div class="docs-inner">				
-				<h2 class="title text-center">Showcase</h2>
-				
-				<div>
-		<style>
-		#panoviewer-showcase {
-				position: relative;
-				width: 100%;
-				height: 400px;
-				margin: 0 auto;
-		}    
-		</style>
-		<div id="panoviewer-showcase"></div>
-		<script>
-			var LOOKAT_DURATION = 1000;
-			var container = document.getElementById("panoviewer-showcase");
-			var PanoViewer = eg.view360.PanoViewer;
-			var panoViewer = new PanoViewer(container, {
-				yaw: 180,
-				image: "./assets/img/test_equi_4096.jpg"
-			}).on("ready", function() {
-				panoViewer.lookAt({
-					yaw: 0
-				}, LOOKAT_DURATION);
-
-				// Set resize event handler just after lookat is done
-				// Because it may fire resize event when page loaded and it makes lookAt being stop.
-				setTimeout(function() {
-					window.addEventListener("resize", function() {
-						panoViewer.updateViewportDimensions();
-					});
-				}, LOOKAT_DURATION);
-			});
-		</script>
-</div>
-
+			<div class="docs-inner">
+				<h2 class="title">Projection Types</h2>
+				<p>PanoViewer offers five projection types. You can see video with the projection.</p>
 			</div>
 		</div>
 	</section>
-	<section id="index" class="section">
-			<div class="container">
+	<section id="list" class="tab docs section" data-tab="projections">
+		<div class="list">
+			<ul class="container">
+				
+				<li class="item">
+					<a href="#equirectangular">
+						<p>Equirectangular</p>
+					</a>
+				</li>
+				
+				<li class="item">
+					<a href="#cubemap">
+						<p>Cubemap</p>
+					</a>
+				</li>
+				
+				<li class="item">
+					<a href="#cubestrip">
+						<p>Cubestrip</p>
+					</a>
+				</li>
+				
+				<li class="item">
+					<a href="#panorama">
+						<p>Panorama</p>
+					</a>
+				</li>
+				
+				<li class="item">
+					<a href="#stereo">
+						<p>Stereoscopic Equirectangular</p>
+					</a>
+				</li>
+							
+			</ul>
+		</div>
+	</section>
+	
+	<section id="equirectangular" class="tab projection docs section" data-tab="projections">
+		<div class="container">
 				<div class="docs-inner">
-					<p class="text-center">
-						<a href="#features">Features </a>/
-						<a href="#getting-started">Getting Started </a>
+					<h3 class="title">Equirectangular</h3>
+					<img src="./common/img/equirectangular.png" class="image" alt="Equirectangular's image"/>
+					<p class="description">The equirectangular projection (also called the equidistant cylindrical projection, geographic projection, or la carte parallélogrammatique projection, and which includes the special case of the plate carrée projection or geographic projection) is a simple map projection attributed to Marinus of Tyre, who Ptolemy claims invented the projection about AD 100.</p>
+					<ul class="demos">
 						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo1's image"/>
+								<p>demo1</p>
+							</a>
+						</li>
 						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo2's image"/>
+								<p>demo2</p>
+							</a>
+						</li>
 						
-							/ <a href="#examples">Examples </a>
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo3's image"/>
+								<p>demo3</p>
+							</a>
+						</li>
 						
-						
-							/ <a href="#projects">Projects </a>
-						
-					</p>
+					</ul>
 				</div>
 			</div>
-		</section>
-	<section id="features" class="docs section">
+	</section>
+	
+	<section id="cubemap" class="tab projection docs section" data-tab="projections">
+		<div class="container">
+				<div class="docs-inner">
+					<h3 class="title">Cubemap</h3>
+					<img src="./common/img/cubemap.jpg" class="image" alt="Cubemap's image"/>
+					<p class="description">asdasdasd</p>
+					<ul class="demos">
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo1's image"/>
+								<p>demo1</p>
+							</a>
+						</li>
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo2's image"/>
+								<p>demo2</p>
+							</a>
+						</li>
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo3's image"/>
+								<p>demo3</p>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+	</section>
+	
+	<section id="cubestrip" class="tab projection docs section" data-tab="projections">
+		<div class="container">
+				<div class="docs-inner">
+					<h3 class="title">Cubestrip</h3>
+					<img src="./common/img/cubestrip.png" class="image" alt="Cubestrip's image"/>
+					<p class="description">Cubestrip is a format for a single image with a combination of six cube faces. It is almost identical to cubemap, but it is implemented in a different way. It aims at better performance and efficiency. In addition, it automatically detects and supports EAC.</p>
+					<ul class="demos">
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo1's image"/>
+								<p>demo1</p>
+							</a>
+						</li>
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo2's image"/>
+								<p>demo2</p>
+							</a>
+						</li>
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo3's image"/>
+								<p>demo3</p>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+	</section>
+	
+	<section id="panorama" class="tab projection docs section" data-tab="projections">
+		<div class="container">
+				<div class="docs-inner">
+					<h3 class="title">Panorama</h3>
+					<img src="./common/img/panorama.png" class="image" alt="Panorama's image"/>
+					<p class="description">asdasdasdasd</p>
+					<ul class="demos">
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo1's image"/>
+								<p>demo1</p>
+							</a>
+						</li>
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo2's image"/>
+								<p>demo2</p>
+							</a>
+						</li>
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo3's image"/>
+								<p>demo3</p>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+	</section>
+	
+	<section id="stereo" class="tab projection docs section" data-tab="projections">
+		<div class="container">
+				<div class="docs-inner">
+					<h3 class="title">Stereoscopic Equirectangular</h3>
+					<img src="./common/img/stereo.png" class="image" alt="Stereoscopic Equirectangular's image"/>
+					<p class="description">asdasdasdas</p>
+					<ul class="demos">
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo1's image"/>
+								<p>demo1</p>
+							</a>
+						</li>
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo2's image"/>
+								<p>demo2</p>
+							</a>
+						</li>
+						
+						<li>
+							<a href="demo1.html">
+								<img src="./common/img/equirectangular.png" alt="demo3's image"/>
+								<p>demo3</p>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+	</section>
+	
+	<section id="features" class="docs section tab" data-tab="features">
 		<div class="container">
 			<div class="docs-inner">
 				<h2 class="title text-center">Features</h2>
@@ -200,7 +587,7 @@
 			</div>
 		</div>
 	</section>
-	<section id="getting-started" class="docs section">
+	<section id="started" class="docs section tab" data-tab="started">
 		<div class="container">
 			<div class="docs-inner">
 				<h2 class="title text-center">Getting Started</h2>
@@ -210,90 +597,59 @@
 <h4 id="npm">npm</h4>
 <p>In case using npm,</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>npm install @egjs/view360 --save
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install @egjs/view360 <span class="nt">--save</span>
+</code></pre></div></div>
 
 <h4 id="script-tag">script tag</h4>
 <p>In case using script tag,
 Download the latest version of view360.js and include using the script tag</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c">&lt;!--script src="/path/to/js/release/latest/dist/PanoViewer/release/latest/dist/PanoViewer/view360.panoviewer.pkgd.min.js"&gt;&lt;/script--&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//naver.github.io/egjs-view360/release/latest/dist/PanoViewer/view360.panoviewer.pkgd.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><a href="//naver.github.io/egjs-view360/release/latest/dist/PanoViewer/view360.panoviewer.pkgd.min.js">Download link</a></p>
 
 <h3 id="usage">Usage</h3>
 
-<h4 id="set-up-your-container-element">1. Set up your Container Element</h4>
+<h4 id="1-set-up-your-container-element">1. Set up your Container Element</h4>
 
 <p>Your container element’s dimensions should be defined.</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"myPanoViewer"</span><span class="nt">&gt;&lt;/div&gt;</span>
-</code></pre>
-</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"myPanoViewer"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div></div>
 
-<h4 id="import-module">2. Import Module</h4>
+<h4 id="2-import-module">2. Import Module</h4>
 
 <h5 id="es5">ES5</h5>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// Use global namespace</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Use global namespace</span>
 <span class="kd">var</span> <span class="nx">PanoViewer</span> <span class="o">=</span> <span class="nx">eg</span><span class="p">.</span><span class="nx">view360</span><span class="p">.</span><span class="nx">PanoViewer</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h5 id="es6">ES6+</h5>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// Or use es6 import</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">PanoViewer</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">"@egjs/view360"</span><span class="p">;</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Or use es6 import</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">PanoViewer</span><span class="p">}</span> <span class="k">from</span> <span class="s2">"@egjs/view360"</span><span class="p">;</span>
+</code></pre></div></div>
 
-<h4 id="initialize-panoviewer">3. Initialize PanoViewer</h4>
-<div class="language-js highlighter-rouge"><pre class="highlight"><code>
+<h4 id="3-initialize-panoviewer">3. Initialize PanoViewer</h4>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c1">// create PanoViewer with option</span>
-<span class="kr">const</span> <span class="nx">panoViewer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PanoViewer</span><span class="p">(</span>
+<span class="kd">const</span> <span class="nx">panoViewer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PanoViewer</span><span class="p">(</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"myPanoViewer"</span><span class="p">),</span>
   <span class="p">{</span>
     <span class="na">image</span><span class="p">:</span> <span class="s2">"/path/to/image/image.jpg"</span>
   <span class="p">}</span>
 <span class="p">);</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>For more information about API, please visit the <strong><a href="//naver.github.io/egjs-view360/release/latest/doc/eg.view360.PanoViewer.html">link</a></strong>.</p>
 
 			</div>
 		</div>
 	</section>
-	
-	
-	<section id="examples" class="docs section">
-		<div class="container">
-			<div class="docs-inner">
-				<h2 class="title text-center">Examples</h2>
-				<ul class="link_list">
-				
-				<li class="link_item">
-					<a href="assets/html/panoviewer_basic_example.html" class="td_a">
-						<div class="link_item_image">
-							<img src="assets/img/basic_panoviewer_thumb.png" width="166" height="108">
-						</div>
-						<div class="link_item_title">
-							<span class="">Basic</span>
-						</div>
-					</a>
-				</li>
-				
-				</ul>
-			</div>
-		</div>
-	</section>
-	
-	
 	
 	
 	<section id="projects" class="docs section">
@@ -305,7 +661,7 @@ Download the latest version of view360.js and include using the script tag</p>
 				<li class="link_item">
 					<a href="https://tv.naver.com" class="td_a">
 						<div class="link_item_image">
-							<img src="./assets/img/naver_tv.png" width="108" height="108">
+							<img src="./common/img/thumbnail/naver_tv.png" width="108" height="108">
 						</div>
 						<div class="link_item_title">
 							<span class="">Naver TV</span>
@@ -316,7 +672,7 @@ Download the latest version of view360.js and include using the script tag</p>
 				<li class="link_item">
 					<a href="https://blog.naver.com" class="td_a">
 						<div class="link_item_image">
-							<img src="./assets/img/naver_blog.png" width="108" height="108">
+							<img src="./common/img/thumbnail/naver_blog.png" width="108" height="108">
 						</div>
 						<div class="link_item_title">
 							<span class="">Naver Blog</span>
@@ -327,7 +683,7 @@ Download the latest version of view360.js and include using the script tag</p>
 				<li class="link_item">
 					<a href="https://post.naver.com" class="td_a">
 						<div class="link_item_image">
-							<img src="./assets/img/naver_post.png" width="108" height="108">
+							<img src="./common/img/thumbnail/naver_post.png" width="108" height="108">
 						</div>
 						<div class="link_item_title">
 							<span class="">Naver Post</span>
@@ -338,7 +694,7 @@ Download the latest version of view360.js and include using the script tag</p>
 				<li class="link_item">
 					<a href="https://land.naver.com" class="td_a">
 						<div class="link_item_image">
-							<img src="./assets/img/naver_realestate.png" width="108" height="108">
+							<img src="./common/img/thumbnail/naver_realestate.png" width="108" height="108">
 						</div>
 						<div class="link_item_title">
 							<span class="">Naver Real Estate</span>
@@ -349,7 +705,7 @@ Download the latest version of view360.js and include using the script tag</p>
 				<li class="link_item">
 					<a href="https://partners.naver.com/" class="td_a">
 						<div class="link_item_image">
-							<img src="./assets/img/naver_partner_square.jpg" width="108" height="108">
+							<img src="./common/img/thumbnail/naver_partner_square.jpg" width="108" height="108">
 						</div>
 						<div class="link_item_title">
 							<span class="">Naver Partner Square</span>
@@ -398,6 +754,10 @@ Download the latest version of view360.js and include using the script tag</p>
     ga('send', 'pageview');
 </script>
 
+
+	<script src="common/js/tab.js"></script>
+
+	<script src="common/js/hash.js"></script>
 
 </body>
 </html>
