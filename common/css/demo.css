@@ -51,7 +51,6 @@ a {
 .infos {
   display: inline-block;
   max-width: 600px;
-  min-width: 300px;
   text-align: left;
 }
 p.info {

@@ -172,8 +172,12 @@
     <h2>Rotate the screen or click the button to resize the viewer.</h2>
     <div class="infos">
         <p class="info">
-            <span class="head">source</span>: <a href="https://www.youtube.com/watch?v=swEtPJIX5IY" target="_blank"><span
-                    class="value">https://www.youtube.com/watch?v=swEtPJIX5IY</span></a>
+            <span class="head">projection</span>: <a href="https://naver.github.io/egjs-view360/release/latest/doc/eg.view360.PanoViewer.PROJECTION_TYPE.html" target="_blank"><span
+                    class="value">PANORAMA</span></a>
+        </p>
+        <p class="info">
+            <span class="head">image</span>: <a href="./img/panorama.jpg" target="_blank"><span
+                    class="value">panorama.jpg</span></a>
         </p>
     </div>
     <div class="buttons">
@@ -189,7 +193,8 @@
         <pre>
 var panoViewer = new eg.view360.PanoViewer(container, {
     image: <a href="./img/panormama.jpg" target="_blank"><span class="value emphasis">"./img/panorama.jpg"</span></a>,
-    projectionType: "panorama"
+    projectionType: <a href="https://naver.github.io/egjs-view360/release/latest/doc/eg.view360.PanoViewer.PROJECTION_TYPE.html" target="_blank"><span
+        class="value emphasis">"panorama"</span></a>
 });
 
 window.addEventListener(<span class="value emphasis">"resize"</span>, function() {
