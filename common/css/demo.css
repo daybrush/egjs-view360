@@ -72,3 +72,11 @@ p.info .value {
   font-size: 14px;
   text-decoration: underline;
 }
+
+.button.light {
+  border: 1px solid #ddd;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 0;
+  font-size: 14px;
+}

@@ -24,7 +24,6 @@
             height: 100px;
             margin: 10px auto;
         }
-
         .resizer {
             position: absolute;
             width: 80px;
@@ -35,7 +34,6 @@
             transform: translate(-50%, -50%);
             animation: scale-up 10s infinite;
         }
-
         .resizer-window {
             position: absolute;
             width: 80px;
@@ -45,12 +43,10 @@
             transform: translate(-50%, -50%);
             animation: scale-up 10s infinite;
         }
-
         .resizer-window .direction {
             position: absolute;
             animation: rotate 10s infinite;
         }
-
         .resizer-window .direction:before {
             position: absolute;
             content: "";
@@ -59,92 +55,74 @@
             background: #333;
             transform: translate(-50%, -50%) rotate(45deg);
         }
-
         .resizer-window .top {
             top: 7px;
             border-top: 5px solid #333;
             border-bottom: 5px solid transparent;
         }
-
         .resizer-window .left {
             left: 7px;
             border-left: 5px solid #333;
             border-right: 5px solid transparent;
         }
-
         .resizer-window .right {
             right: 7px;
             border-right: 5px solid #333;
             border-left: 5px solid transparent;
         }
-
         .resizer-window .bottom {
             bottom: 7px;
             border-bottom: 5px solid #333;
             border-top: 5px solid transparent;
         }
-
         @keyframes scale-up {
             0% {
                 width: 70px;
                 height: 50px;
             }
-
             30% {
                 width: 100px;
                 height: 75px;
             }
-
             50% {
                 width: 100px;
                 height: 75px;
             }
-
             80% {
                 width: 70px;
                 height: 50px;
             }
-
             100% {
                 width: 70px;
                 height: 50px;
             }
         }
-
         @keyframes rotate {
             0% {
                 transform: rotate(0deg);
             }
-
             25% {
                 transform: rotate(0deg);
             }
-
             30% {
                 transform: rotate(180deg);
             }
-
             50% {
                 transform: rotate(180deg);
             }
-
             75% {
                 transform: rotate(180deg);
             }
-
             80% {
                 transform: rotate(0deg);
             }
         }
-
         .viewer.container219:before {
             padding-top: 45%;
         }
-
         .viewer.cube:before {
             padding-top: 100%;
         }
-
         .buttons button {
             border: 1px solid #ddd;
             margin: 5px;
@@ -186,7 +164,6 @@
         <button onclick="removeClass('container219');addClass('cube');resize();">Cube Container</button>
     </div>
     <div class="viewer">
-
         <div class="container"></div>
     </div>
     <div class="source">
@@ -194,7 +171,8 @@
 var panoViewer = new eg.view360.PanoViewer(container, {
     image: <a href="./img/panormama.jpg" target="_blank"><span class="value emphasis">"./img/panorama.jpg"</span></a>,
     projectionType: <a href="https://naver.github.io/egjs-view360/release/latest/doc/eg.view360.PanoViewer.PROJECTION_TYPE.html" target="_blank"><span
-        class="value emphasis">"panorama"</span></a>
+        class="value emphasis">"panorama"</span></a>,
+    useZoom: false
 });
 
 window.addEventListener(<span class="value emphasis">"resize"</span>, function() {
@@ -228,7 +206,8 @@ window.addEventListener(<span class="value emphasis">"resize"</span>, function()
     var panoViewer = new eg.view360.PanoViewer(container,
         {
             image: "./img/panorama.jpg",
-            projectionType: "panorama"
+            projectionType: "panorama",
+            useZoom: false,
         }
     );
 
@@ -237,5 +216,4 @@ window.addEventListener(<span class="value emphasis">"resize"</span>, function()
     PanoControls.init(container, panoViewer);
     PanoControls.showLoading();
 </script>
-
 </html>

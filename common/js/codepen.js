@@ -67,7 +67,7 @@ $.ajax({
   $html.find("a[href]").toArray().forEach(function (el) {
     el.setAttribute("href", resolvePath(href, el.getAttribute("href")));
   });
-  $html.find("img[src]").toArray().forEach(function (el) {
+  $html.find("img[src], source[src], video[src]").toArray().forEach(function (el) {
     el.setAttribute("src", resolvePath(href, el.getAttribute("src")));
   });
 
@@ -86,8 +86,9 @@ $.ajax({
 
   var data = {
     title: $html.find("title").text(),
+    description: $html.find("title").text(),
     private: false,
-    header: "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi'>",
+    head: "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi'>",
     html: htmlText,
     html_pre_processor: "none",
     css: cssText,
@@ -101,9 +102,9 @@ $.ajax({
     js_external: jsPaths.join(";") // "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js;" + window.LIBLINK.join(";")
   };
   $(document).ready(function () {
-    document.body.insertAdjacentHTML("afterbegin", '<form class="codepenform" action="https://codepen.io/pen/define" method="POST" target="_blank">' +
+    (document.querySelector(".source") || document.body).insertAdjacentHTML("afterbegin", '<form class="codepenform" action="https://codepen.io/pen/define" method="POST" target="_blank">' +
     '<input type="hidden" name="data" value=\'' + JSON.stringify(data).replace(/"/g, "&quot;").replace(/'/g, "&apos;") + '\'>' +
-    '<input type="image" src="../../../common/img/cp-arrow-right' + "-black" + '.svg" width="40" height="40" value="Create New Pen with Prefilled Data" class="codepen-mover-button" style="position:fixed;z-index:5;right: 10px; top: 5px;">' +
+    '<input type="image" src="../../../common/img/cp-arrow-right' + "-black" + '.svg" width="40" height="40" value="Create New Pen with Prefilled Data" class="codepen-mover-button" style="position:absolute;z-index:5;right: 10px; top: 5px;">' +
     '</form>');
   });
 });

@@ -20,10 +20,10 @@ var PanoControls = (function() {
 		/**
 		 * Navigator Handler
 		 */
-		var pieView = new PieView(document.querySelector(".camera"));
+		var pieEl = document.querySelector(".camera");
+		var pieView = new PieView(pieEl);
 		panoViewer.on({
 			"ready": function () {
-				// console.log("ready");
 				var yawRange = panoViewer.getYawRange();
 				pieView.setState(panoViewer.getYaw(), panoViewer._getHFov(), yawRange[1] - yawRange[0]);
 				showLoading(false);
@@ -33,6 +33,13 @@ var PanoControls = (function() {
 					pieView.setState(e.yaw,  hfov);
 					// console.log("viewChange");
 			}
+		});
+
+		/**
+		 * When clicking on pie, set to default direction.
+		 */
+		pieEl.addEventListener("click", function() {
+			panoViewer.lookAt({yaw: 0, pitch: 0}, 400);
 		});
 
 		/**
@@ -72,7 +79,7 @@ var PanoControls = (function() {
 				}
 
 				// resize event is not triggered.
-				!screenfull.enabled && panoViewer.updateViewportDimensions();
+				panoViewer.updateViewportDimensions();
 		}
 
 		screenfull.enabled && screenfull.on("change", changeMode);
@@ -108,8 +115,14 @@ var PanoControls = (function() {
 	}
 
 	function showLoading(isVisible) {
+		var loadingEl = document.querySelector(".image360_loading");
+
+		if (!loadingEl){
+			console.warn("loading layer does not exist.");
+			return;
+		}
 		var visible = (isVisible == undefined || isVisible == true) ? true : false;
-		var loadingClassList = document.querySelector(".image360_loading").classList;
+		var loadingClassList = loadingEl.classList;
 
 		if (visible) {
 			loadingClassList.add("is-loading");
