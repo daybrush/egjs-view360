@@ -1466,7 +1466,7 @@ describe("YawPitchControl", function() {
 			inst.destroy();
 		});
 
-		it("should work on chrome 65 android", done => {
+		it.only("should work on chrome 65 android", done => {
 			// When
 			inst = new YawPitchControlOnChrome65({element: target});
 			inst.enable();
