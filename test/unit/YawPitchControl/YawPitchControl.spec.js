@@ -1483,7 +1483,7 @@ describe("YawPitchControl", function() {
 			});
 		});
 
-		it("should work on chrome 66 android", done => {
+		it.only("should work on chrome 66 android", done => {
 			inst = new YawPitchControlOnChrome66({element: target});
 			inst.enable();
 
