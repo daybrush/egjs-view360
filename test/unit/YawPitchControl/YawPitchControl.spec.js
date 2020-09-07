@@ -1496,6 +1496,8 @@ describe("YawPitchControl", function() {
 				// Then
 				expect(Math.round(Math.abs(inst.getYawPitch().yaw / 10))).to.be.equal(4);
 				done();
+			}).catch(e => {
+				throw e;
 			});
 		});
 	});
